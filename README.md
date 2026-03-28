@@ -71,7 +71,7 @@ Our system provides:
 ## 📸 Screenshots
 
 <img width="1859" height="958" alt="image" src="https://github.com/user-attachments/assets/d6a1a0b8-8ec5-4b6b-87a6-3c39b49a3e91" />
-
+* click on smart-auto-gen to create the schedules automatically 
 <img width="1868" height="947" alt="image" src="https://github.com/user-attachments/assets/e358463d-c442-4260-ace0-f72879a7ea24" />
 
 ---
