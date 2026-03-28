@@ -84,6 +84,7 @@ Our system provides:
 git clone https://github.com/shouryasingh154-sketch/smart-transit-scheduler-def.git
 cd smart-transit-scheduler-def
 i have provided a db url in .env file so you may directly use that to see preloaded data for easier visualization
+i would remove this after hackathon and i have also provieded .env.example file if you to use your db connection 
 ```
 
 ### 2️⃣ Install dependencies
