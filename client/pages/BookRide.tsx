@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { useState, useEffect } from "react";
 import { MapPin, Search, Clock, Users, Loader2, Navigation, AlertCircle, ArrowRight } from "lucide-react";
 
-const API_BASE = "http://localhost:5000/api/schedule";
+const API_BASE = `${import.meta.env.VITE_API}/schedule`;
 
 export default function BookRide() {
   const [routes, setRoutes] = useState([]);
@@ -37,7 +37,7 @@ export default function BookRide() {
     setShowResults(false);
     try {
       const res = await fetch(
-        `http://localhost:5000/api/bus/between-stops?startLocation=${encodeURIComponent(startStopName)}&endLocation=${encodeURIComponent(endStopName)}`
+        `${import.meta.env.VITE_API}/bus/between-stops?startLocation=${encodeURIComponent(startStopName)}&endLocation=${encodeURIComponent(endStopName)}`
       );
       const data = await res.json();
       setAvailableBuses(data);

@@ -16,8 +16,8 @@ import {
 } from "lucide-react";
 
 // API Endpoints
-const API_BASE = "http://localhost:5000/api/schedule"; 
-const HEATMAP_API = "http://localhost:5000/api/heatmap";
+const API_BASE = `${import.meta.env.VITE_API}/schedule`;
+const HEATMAP_API = `${import.meta.env.VITE_API}/heatmap`;
 
 
 export default function AdminDashboard() {
