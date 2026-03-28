@@ -82,7 +82,7 @@ Our system provides:
 
 ```bash
 git clone https://github.com/shouryasingh154-sketch/smart-transit-scheduler-def.git
-cd your-repo-name
+cd smart-transit-scheduler-def
 ```
 
 ### 2️⃣ Install dependencies
