@@ -83,6 +83,7 @@ Our system provides:
 ```bash
 git clone https://github.com/shouryasingh154-sketch/smart-transit-scheduler-def.git
 cd smart-transit-scheduler-def
+add a .env file in the root directory and copy from .env.example 
 ```
 
 ### 2️⃣ Install dependencies
