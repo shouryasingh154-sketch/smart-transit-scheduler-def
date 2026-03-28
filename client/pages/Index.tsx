@@ -8,7 +8,6 @@ import {
   CheckCircle,
   AlertCircle,
 } from "lucide-react";
-
 export default function Index() {
   return (
     <Layout>
