@@ -5,16 +5,18 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "seed": "node --loader ts-node/esm seed.ts"
   },
   "dependencies": {
-    "express": "^5.1.0",
-    "mongoose": "^8.0.0",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.1"
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "@types/node": "^20.0.0"
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.0"
   }
 }

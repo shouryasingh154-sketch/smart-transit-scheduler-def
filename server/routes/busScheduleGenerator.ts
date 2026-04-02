@@ -6,7 +6,7 @@ import { Heatmap } from "../models/Heatmap";
 import { number } from "zod/v4";
 const router = express.Router();
 
-// 🔥 helper: rotate buses
+
 async function getBusForIndex(index: number) {
   const buses = await Bus.find();
   if (buses.length === 0) throw new Error("No buses found");
@@ -23,7 +23,7 @@ router.post("/auto-generate", async (req, res) => {
       return res.status(400).json({ message: "Missing parameters" });
     }
 
-    // 🔥 FIX: Normalize date to start of day to ensure deleteMany matches insertMany
+    
     const targetDate = new Date(date);
     targetDate.setHours(0, 0, 0, 0);
 
@@ -32,13 +32,13 @@ router.post("/auto-generate", async (req, res) => {
       return res.status(404).json({ message: "No routes found." });
     }
 
-    // 🔥 FIX: PREVENT DOUBLING - Delete existing active schedules for this specific day
+    
     await Schedule.deleteMany( );
 
     const allNewSchedules: any[] = [];
 
     for (const route of allRoutes) {
-      // Fetch Demand for this specific route
+      
       const heatmaps = await Heatmap.find({
         source: route.source,
         destination: route.destination,
@@ -57,7 +57,7 @@ router.post("/auto-generate", async (req, res) => {
         const currentHour = currentTime.getHours();
         const demand = demandMap[currentHour] || 1;
 
-        // Dynamic Interval Logic
+        
         let dynamicInterval = demand > 50 ? 5 : demand > 20 ? 10 : 30;
         
         const busId = await getBusForIndex(busIndex);
@@ -74,7 +74,7 @@ router.post("/auto-generate", async (req, res) => {
           bus: busId,
           departureTime: new Date(currentTime),
           arrivalTime: new Date(currentTime.getTime() + (route.avgDuration || 60) * 60000),
-          date: targetDate, // Store normalized date
+          date: targetDate, 
           stops,
           totalSeats: 40,
           availableSeats: 40,
@@ -102,7 +102,7 @@ router.post("/auto-generate", async (req, res) => {
   }
 });
 
-// ✅ Manual Schedule (UNCHANGED)
+
 router.post("/manual", async (req, res) => {
   try {
     const {
@@ -168,10 +168,10 @@ router.post("/add", async (req, res) => {
       capacity,
       type,
       routeId,
-      currentLocation // optional
+      currentLocation 
     } = req.body;
 
-    // 🔹 1. Validate input
+    
     if (!busNumber || !capacity || !routeId) {
       return res.status(400).json({
         success: false,
@@ -179,7 +179,7 @@ router.post("/add", async (req, res) => {
       });
     }
 
-    // 🔹 2. Check if route exists
+
     const route = await Route.findById(routeId);
     if (!route) {
       return res.status(404).json({

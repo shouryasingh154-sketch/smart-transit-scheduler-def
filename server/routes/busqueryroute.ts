@@ -3,7 +3,7 @@ import { Schedule } from "../models/Schedule";
 import { Heatmap } from "../models/Heatmap";
 const router = express.Router();
 
-// GET upcoming buses between stops
+
 router.get("/between-stops", async (req, res) => {
   try {
     const { startLocation, endLocation } = req.query;
@@ -14,7 +14,7 @@ router.get("/between-stops", async (req, res) => {
 
     const now = new Date();
 
-    // 🔥 Only fetch relevant schedules (IMPORTANT OPTIMIZATION)
+  
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -38,7 +38,7 @@ router.get("/between-stops", async (req, res) => {
     for (let schedule of schedules) {
       const stops = schedule.stops;
 
-      // find indexes
+      
       const startIndex = stops.findIndex(
         (s) => s.location === startLocation
       );
@@ -47,11 +47,11 @@ router.get("/between-stops", async (req, res) => {
         (s) => s.location === endLocation
       );
 
-      // valid route direction check
+  
       if (startIndex !== -1 && endIndex !== -1 && startIndex < endIndex) {
         const departure = new Date(stops[startIndex].departureTime || stops[startIndex].arrivalTime);
 
-        // 🔥 FILTER ONLY UPCOMING
+        
         if (departure >= now) {
           result.push({
             scheduleId: schedule._id,
